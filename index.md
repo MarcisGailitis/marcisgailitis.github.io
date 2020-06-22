@@ -11,25 +11,39 @@
 * text editor & version control!
 
 **Python vs. Bash vs. Other**
-Bash scripts are automating running a bunch of commands and that's it!
-Max. 100 lines, no code re-use, no libraries support.
+
+* Bash scripts should be used just for automating running a bunch of commands 
+and that's it! 
+* Max. 100 lines of code
+* no code re-use, 
+* no libraries support.
 
 **Diff b/w source script.sh and ./script.sh?**
+
 Both executes the code, but source will execute the script in current bash
 session, but ./will start a new bash instance.
 You need to source functions to be executed in current bash session!
 
 **apt install Python3-package-name vs pip install package-name?**
-Often times, apt might be slightly out of date, so use pip, 
-if you care for latest features.
+
+Often, apt might be slightly out of date, so use pip, if you care for latest 
+features.
 
 **Profiling tools**
-print stuff using "time", "Cachegrind".
+
+* print stuff using "time", 
+* "Cachegrind".
 
 **Data wrangling tools**
-curl, head, tail, Python+Pandas, Python + Jupyter Notebooks
+
+* curl, 
+* head, 
+* tail, 
+* Python+Pandas, 
+* Python + Jupyter Notebooks
 
 **Docker vs. VM**
+
 Docker = Container, shares kernel, with underlying machine. 
 So underlying kernel needs to be compatible
 
