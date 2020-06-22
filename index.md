@@ -1,14 +1,56 @@
-# marcisgailitis.github.io
-      
 # Review of GCP videos
 
 # Review of missing semester
+## 10) Potpourri = miscellaneous
+**1) Keyboard remapping**
+In Vim Remap Caps Lock to Ctrl or Escape.
+
+**2) Deamons**
+Systemctl to monitor system.d. Enable, disable, start, stop deamon.
+
+Cron.d to schedule a command.
+
+**3) File Systems. Fuse**
+To have interactivity b/user space and Kernel.
+
+**4) Backups**
+Are critical! As Hard drive can fail at any moment!
+
+**5) API**
+curl to fetch content of URL and gives back the response.
+Oauth
+ifthisthenthat
+
+**6) Command line arguments**
+--help
+--verbose
+interactive mode!
+Recursive mode!
+Double dash, do not interpret argumens as a flags
+rm -i vs rm -- i
+
+7) Win manager
+8) VPN (Virtual Private Network)
+9) Markdown
+word #italic
+word # bold
+
+-list item
+1 numbered list
+# header
+##subheading
+` inline code ` 
+``` code on
+b/w several lines ```
+
+https://commonmark.org/help/
 
 ## 11) Q & A
 **What are some tools that you would prioritize learning first?**
 * automate repetitive tasks,
 * familiarize with keyboard shortcuts
-* text editor & version control!
+* text editor 
+* version control!
 
 **Python vs. Bash vs. Other**
 
@@ -24,7 +66,7 @@ Both executes the code, but source will execute the script in current bash
 session, but ./will start a new bash instance.
 You need to source functions to be executed in current bash session!
 
-**apt install Python3-package-name vs pip install package-name?**
+**apt install Python3-package-name vs. pip install package-name?**
 
 Often, apt might be slightly out of date, so use pip, if you care for latest 
 features.
@@ -36,23 +78,26 @@ features.
 
 **Data wrangling tools**
 
-* curl, 
-* head, 
-* tail, 
-* Python+Pandas, 
+* curl
+* head
+* tail
+* Python + Pandas
 * Python + Jupyter Notebooks
 
 **Docker vs. VM**
 
-Docker = Container, shares kernel, with underlying machine. 
-So underlying kernel needs to be compatible
+Docker = Container,shares kernel with underlying machine. 
+So underlying kernel needs to be compatible with os in container.
 
 **Any more Vim tricks?**
 * Vim plugins, undotree
-* <Leader>w = :wq, I set <leader> in many .vimrc files, and I am wondering what does it mean?
-* Macros!
-* Marks, m + any letter to mark the line, then apostrophe + letter to jump back
+* <Leader>w = :wq, I set <leader> in many .vimrc files, and I am wondering 
+what does it mean?
+* Macros in Vim are nto that hard
+* Marks, m + any letter to mark the line, then apostrophe + letter to jump 
+back
 * Ctrl+o, to jump to the previous place in file
 * :earlier
-* search command is a noun e.g. d/string, will delete till next mach of the pattern
+* Search command is a noun e.g. d/string, will delete till next match of 
+the searchpattern
 * undodir, for persistent history
