@@ -1,2 +1,2 @@
 # marcisgailitis.github.io
-Home of [marcisgailitis.github.io](marcisgailitis.github.io)
+Home of [https://marcisgailitis.github.io](https://marcisgailitis.github.io)
