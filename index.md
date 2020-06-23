@@ -1,6 +1,7 @@
 # Review of GCP videos
 
 # Review of missing semester
+Conspect from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 ## 10) Potpourri = miscellaneous
 
 **1) Keyboard remapping**
