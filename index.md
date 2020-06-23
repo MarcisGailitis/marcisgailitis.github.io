@@ -2,26 +2,32 @@
 
 # Review of missing semester
 ## 10) Potpourri = miscellaneous
+
 **1) Keyboard remapping**
+
 In Vim Remap Caps Lock to Ctrl or Escape.
 
 **2) Deamons**
-Systemctl to monitor system.d. Enable, disable, start, stop deamon.
 
+Systemctl to monitor system.d deamon (to enable, disable, start, stop deamons).
 Cron.d to schedule a command.
 
 **3) File Systems. Fuse**
-To have interactivity b/user space and Kernel.
+
+To have interactivity b/w user space and Kernel.
 
 **4) Backups**
+
 Are critical! As Hard drive can fail at any moment!
 
 **5) API**
+
 curl to fetch content of URL and gives back the response.
 Oauth
 ifthisthenthat
 
 **6) Command line arguments**
+
 --help
 --verbose
 interactive mode!
@@ -29,23 +35,24 @@ Recursive mode!
 Double dash, do not interpret argumens as a flags
 rm -i vs rm -- i
 
-7) Win manager
-8) VPN (Virtual Private Network)
-9) Markdown
-word #italic
-word # bold
+**7) Win manager**
+
+**8) VPN (Virtual Private Network)**
+
+**9) Markdown**
+
+*word* italic
+**word** bold
 
 -list item
 1 numbered list
 # header
 ##subheading
-` inline code ` 
-``` code on
-b/w several lines ```
 
 https://commonmark.org/help/
 
 ## 11) Q & A
+
 **What are some tools that you would prioritize learning first?**
 * automate repetitive tasks,
 * familiarize with keyboard shortcuts
