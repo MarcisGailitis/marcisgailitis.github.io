@@ -1,5 +1,117 @@
 # Review of GCP videos
 
+## [Navigating Google Cloud Platform: A Guide for new GCP users](https://www.youtube.com/watch?v=RynMOvYdsCg)
+
+Extra time on computing and storage.
+
+### Computing:
+-	Virtual Machine
+-	Containers
+-	Serverless, a marketing term, which just means is you do not worry about hardware and you pay for that you use a.k.a. Platform as a Service.
+
+#### VMs - Compute Engine:
+- Cloud Launcher prebuilt images for Compute Engine
+- You can ssh into the instance via browser
+
+#### Containers – Container Engine or managed Kubernetes:
+-	Container orchestration engine (DNS server, Service Discovery, Logging, Monitoring, Storage )
+-	Allows running a large number of containers in prof
+-	Organizing them into workloads (microservices, scheduled jobs, batch jobs)
+
+#### Containers – App Engine:
+-	Docker Images, with custom Docker file
+-	Autoscaling
+-	Endpoint
+
+#### Container Registry:
+-	Container storage
+-	Works with Container Engine, App Engine, Docker
+
+#### Container Builder:
+-	Container Builder as a Service
+-	Integrates with Container Registry
+-	Will take your Docker files & application and build an image for you and host in Container Registry
+
+#### Cloud Functions:
+-	No app, just function (email, when someone uploads a file, you do not want to build a whole application around it, you just want to listen for the event and then start Cloud function)
+
+### Networking:
+-	Cloud Virtual Network, Hook up a network on your system in your google cloud project
+-	Cloud Interconnect, Peer directly with google for faster throughput
+-	VPN
+-	Firewall
+-	CDN, activate through load balancers
+-	DNS
+-	Load Balancers
+
+### Storage:
+-	Files
+-	Databases
+-	Big Data
+
+#### Files:
+-	Cloud Storage
+   -	One set of interface
+   -	Several types (multi-regional (public data), regional (processed data), nearline & cold line (Long Term Storage))
+
+#### Databases (application data):
+-	SQL
+    -	Cloud SQL
+        -	Traditional SQL server
+        -	Vertically scalable
+        -	Based on VMs
+    -	Cloud Spanner
+        -	Database as a Service
+        -	Horizontally Scalable
+        -	Be very careful, it can get expensive for a hobbyist
+-	NoSQL
+    -	Cloud Datastore
+        -	Document-Based
+        -	Indexable
+        -	Giant
+        -	Works very well with App Engine 
+        -	accesable from Compute Engine
+    -	Cloud Bigtable
+        -	Columnar
+        -	Low Latency
+        -	Need scale to be cost-effective, more than 1 TB of data
+-	BigData
+    -	BigQuery
+        -	Pipe in semi-structured data
+        -	Analyze it quickly
+        -	Use SQL to do it
+
+### Other BigData tools:
+-	Pub/Sub
+    -	Messaging bus
+    -	Many to many
+-	Dataflow
+    -	Managed service for data analysis
+    -	Apache Beam
+-	DataProc
+    -	Managed Spark and Hadoop
+    -	With Autoscaling
+
+Cloud Pub/Sub and Cloud Storage are at the center hub for GCP process communications.
+
+### Administration & Reporting:
+-	Stackdriver Logging
+    -	Cross-Cloud Logging (GCP, AWS, Azure, etc.)
+-	Stackdriver Monitoring
+    -	Cross-Cloud Monitoring (GCP, AWS, Azure, etc.)
+-	Stackdriver Trade
+    -	Automatic
+    -	Enabled through an SDK
+    -	Links to logs
+-	Stackdriver Error Reporting
+-	Stackdriver Debugging
+
+### Security:
+-	Cloud IAM
+    -	Role-based permissions
+    -	Fine graned controls
+
+
 ## [Where should I run my code?](https://www.youtube.com/watch?v=XcHE5V82OxM) 
 
 Serverless, Containers, VMs
