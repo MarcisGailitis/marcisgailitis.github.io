@@ -1,4 +1,51 @@
-# Review of GCP videos
+ # Review of GCP videos
+
+## [Where should I run my code?](https://www.youtube.com/watch?v=XcHE5V82OxM) 
+
+Serverless, Containers, VMs
+
+### It depends:
+
+1. Cloud Functions, Functions as a service, for event-driven
+2. App Engine, Platform as a Service, for web-facing code
+3. Kubernetes Engine, Collections of containers, for containerized systems
+4. Compute Engine, VMs, for existing systems
+
+### Compute Engine:
+VMs or Infrastructure as a Service
+
+* Docker Container directly on Container Optimized OS
+* Managed Instance Groups (templates, autoscaling)
+* Load Balancer
+
+#### Ideal for:
+* lift and shift
+* 1:1 container:VM mapping
+* Specific OS/kernel required
+* Running databases
+
+### Kubernetes Engine:
+Managed Kubernetes or Containers as a Service
+
+#### Why Containers?
+* Performance
+* Stability
+* Isolation
+* Portability
+
+#### Why Kubernetes?
+* For lots of containers
+* Manages Containerized applications & underlying cluster
+* Manage Applications, not machines
+
+#### What is Kubernetes Engine?
+* Hosted or managed Kubernetes
+* Manages the cluster (compute nodes, software updates, cluster autoscaling)
+
+#### Ideal for:
+* Run App in Multiple env. (dev/test/prod)
+* Full advantage of containers
+* CI/CD pipeline
 
 # Review of missing semester
 Conspect from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
