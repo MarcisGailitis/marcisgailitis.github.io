@@ -1,4 +1,4 @@
- # Review of GCP videos
+# Review of GCP videos
 
 ## [Where should I run my code?](https://www.youtube.com/watch?v=XcHE5V82OxM) 
 
@@ -6,13 +6,14 @@ Serverless, Containers, VMs
 
 ### It depends:
 
-1. Cloud Functions, Functions as a service, for event-driven
+1. Cloud Functions, Functions as a Service, for event-driven
 2. App Engine, Platform as a Service, for web-facing code
 3. Kubernetes Engine, Collections of containers, for containerized systems
 4. Compute Engine, VMs, for existing systems
 
 ### Compute Engine:
-VMs or Infrastructure as a Service
+VMs 
+or Infrastructure as a Service
 
 * Docker Container directly on Container Optimized OS
 * Managed Instance Groups (templates, autoscaling)
@@ -25,7 +26,8 @@ VMs or Infrastructure as a Service
 * Running databases
 
 ### Kubernetes Engine:
-Managed Kubernetes or Containers as a Service
+Managed Kubernetes 
+or Containers as a Service
 
 #### Why Containers?
 * Performance
@@ -38,14 +40,57 @@ Managed Kubernetes or Containers as a Service
 * Manages Containerized applications & underlying cluster
 * Manage Applications, not machines
 
-#### What is Kubernetes Engine?
-* Hosted or managed Kubernetes
+#### What is the Kubernetes Engine?
+* Hosted or Managed Kubernetes
 * Manages the cluster (compute nodes, software updates, cluster autoscaling)
 
 #### Ideal for:
 * Run App in Multiple env. (dev/test/prod)
 * Full advantage of containers
 * CI/CD pipeline
+
+### App Engine:
+Let us run & scale your code
+or Platform as a Service
+
+#### What is App Engine?
+* "Serverless" before it was cool
+* Write it this way, we will scale it for you
+* Runs Docker containers
+* Open Source Runtime: Node.js, Ruby, Java, Python, Go, etc
+* Uses Gvisor, Application Kernel for Containers, which allows to run arbitrary code safely
+
+#### Ideal for:
+* HTTP/S request-response
+* Stateless serving apps
+* Scaling to traffic
+
+### Cloud Functions:
+Event-driven function calls
+or Functions as a Service
+
+#### What is Cloud Functions?
+* A serverless env. to build and connect cloud services
+* Event-driven - connect Cloud services via Cloud Pub/Sub, Cloud Storage and HTTP requests
+* Serverless:
+    * Fully managed execution env.
+    * Pay Only for what you use
+    * Auto-scales with usage
+* Node.js Python 3.7
+* Serverless Containers on GCF
+
+#### Good fit?
+* Serverless
+* Using Pub/Sub and/or Cloud Storage
+* Don't want to think about runtime env
+* Data Transformations (ETL)
+* "Glue" for the Cloud
+
+### Abstraction - what do you want to think about
+1. Cloud Functions, Events, Function Definitions
+2. App Engine, Code, HTTP requests
+3. Kubernetes Engine, Applications, not computers
+4. Compute Engine, Software/OS/disk images
 
 # Review of missing semester
 Conspect from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
