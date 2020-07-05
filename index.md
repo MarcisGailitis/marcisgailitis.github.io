@@ -235,12 +235,48 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
-### Ch5 - Common-line environment
+### Ch4 - Data wrangling
+
+Data Wrangling  = changing data format1 -> format2
+
+sed = stream editor works with regex
+
+awk = column-based stream processor
+
+Data wrangling examples:
+
+* text file, log file -> statistics out of it
+* anything that goes from a to b
+
+`$ ssh server journalctl`  to view the log file
+
+`$ ssh server journalctl | grep ssh` to view only ssh related logs
+
+`$ ssh server journalctl | grep ssh | grep "Disconnected from"` to further reduce log file
+
+`$ ssh server 'journalctl | grep ssh | grep "Disconnected from"' | less` to execute grep commands on the server-side
+
+`$ ssh server 'journalctl | grep ssh | grep "Disconnected from"' > ssh.log` to save grepped log file locally
+
+>Jan 17 03:13:00 thesquareplanet.com sshd[2631]: Disconnected from invalid user Disconnected from 46.97.239.16 port 55920 [preauth]
+
+`$ cat ssh.log | sed 's/.*Disconnected from//'` substitute sed expression, to remove everything including Disconnected from text
+> invalid user Disconnected from 46.97.239.16 port 55920 [preauth]
+
+`$ cat ssh.log | sed -E 's/.*Disconnected from (invalid | authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/'` to create and access capture group with user names only
+
+`$cat ssh.log | sed -E 's/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/' | sort | uniq -c | sort -nk1,1 | tail -n10` to group and sort most popular usernames
+
+`$ cat ssh.log | sed -E 's/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/' | sort | uniq -c | sort -nk1,1 | tail -n10 | awk '{print $2}' | paste -sd` to print only 2nd column and convert column of usernames to to comma separated row
+
+### Ch5 - Command-line environment
 
 #### Job Control
 
 \$ sleep 20
-Ctrl+c to terminate sleep program, which sends SIGINT (Signal Interrupt) signal to the kernel. man signal to see all available signals, at least 18 of them
+
+Ctrl+c to terminate sleep program, which sends SIGINT (Signal Interrupt) signal to the kernel.
+\$ man signal to see all available signals, at least 18 of them
 
 * SIGSTOP to stop, SIGCONT to continue
 * SIGQUIT to quit
@@ -349,7 +385,7 @@ Configs can also take wildcards
 
 Host *.mit.edu
 
-* User foobaz
+* User foobar
 
 An additional advantage of using the ~/.ssh/config file over aliases is that other programs like scp, rsync, mosh, &c are able to read it as well and convert the settings into the corresponding flags.
 
