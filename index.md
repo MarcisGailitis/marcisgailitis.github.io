@@ -235,11 +235,57 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
-### 10) Potpourri = miscellaneous
+### Ch9 - Security and Cryptography
+
+#### Entropy
+
+The measure of randomness, Useful for password security.
+
+log base 2 (Nr of possibilities):
+
+* Coin flip = 2 possibilities = log base 2 (2) = 1 bit of entropy
+* Dice flip = 6 possibilities = log base 2 (6) = 2.6 bits of entropy
+* 4 random words =~ 40 bits of entropy
+
+#### Hash Functions
+
+* maps data of arbitrary size to a fixed size
+* sha1 maps arbitrary-sized inputs to 160-bit outputs (which can be represented as 40 hexadecimal characters)
+* echo Hello | sha1sum
+* hard-to-invert random-looking (but deterministic) function
+* [Lifetimes of cryptographic hash functions](https://valerieaurora.org/hash.html)
+
+#### Applications
+
+* Git, for content-addressed storage
+* A short summary of the contents of a file, for software distribution
+* Commitment scheme. A commitment scheme is a cryptographic primitive that allows one to commit to a chosen value (or chosen statement) while keeping it hidden to others, with the ability to reveal the committed value later
+
+#### Key derivation functions
+
+* Key derivation functions (KDFs) are used for a number of applications, including producing fixed-length output for use as keys in other cryptographic algorithms.
+* Usually, KDFs are deliberately slow, in order to slow down offline brute-force attacks.
+
+#### Symmetric cryptography
+
+* keygen() -> key
+* encrypt(plaintext, key) -> ciphertext
+* decrypt(ciphertext, key) -> plaintext
+
+Key = randomized, with a really high entropy
+The encrypt function has the property that given the output (ciphertext), it’s hard to determine the input (plaintext) without the key
+
+#### Asymmetric cryptography
+
+* keygen() -> (public key, private key)
+* encrypt(plaintext: plaintext, public key) -> ciphertext
+* decrypt(ciphertext: ciphertext, private key) -> plaintext
+
+### Ch10 Potpourri = miscellaneous
 
 #### Keyboard remapping
 
-In Vim Remap Caps Lock to Ctrl or Escape.
+In Vim Remap Caps Lock to Ctrl or Esc.
 
 #### Deamons
 
@@ -272,6 +318,7 @@ Are critical! As Hard drive can fail at any moment!
 #### Markdown
 
 *word*  = italic
+
 **word** bold
 
 * unordered list item
@@ -286,7 +333,7 @@ Are critical! As Hard drive can fail at any moment!
 
 [CommonMark](https://commonmark.org/help/)
 
-### 11) Q & A
+### Ch11 Q & A
 
 #### What are some tools that you would prioritize learning first
 
@@ -304,13 +351,12 @@ Are critical! As Hard drive can fail at any moment!
 
 #### Diff b/w source script.sh and ./script.sh
 
-Both executes the code, but source will execute the script in current bash
-session, but ./will start a new bash instance.
+Both executes the code, but source will execute the script in current bash session, but ./ will start a new bash instance.
 You need to source functions to be executed in current bash session!
 
 #### apt install Python3-package-name vs. pip install package-name
 
-Often, apt might be slightly out of date, so use pip, if you care for latest features.
+Often, apt might be slightly out of date, so use pip, if you care about latest features.
 
 #### Profiling tools
 
@@ -327,8 +373,7 @@ Often, apt might be slightly out of date, so use pip, if you care for latest fea
 
 #### Docker vs. VM
 
-Docker = Container,shares kernel with underlying machine.
-So underlying kernel needs to be compatible with os in container.
+Docker = Container,shares kernel with underlying machine. So underlying kernel needs to be compatible with os in container.
 
 #### Any more Vim tricks
 
