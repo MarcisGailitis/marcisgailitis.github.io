@@ -235,6 +235,124 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch5 - Common-line environment
+
+#### Job Control
+
+\$ sleep 20
+Ctrl+c to terminate sleep program, which sends SIGINT (Signal Interrupt) signal to the kernel. man signal to see all available signals, at least 18 of them
+
+* SIGSTOP to stop, SIGCONT to continue
+* SIGQUIT to quit
+* SIGKILL can not be captured
+when you logoff, terminal send Hangup signal to all active applications
+
+\$ sleep 100
+ctrl+z to sent Sigstop,  to suspend
+\$ nohup sleep 2000 &
+\& to send the program to background
+nohup encapsulates your command and ignores Hangup signal, so that command keeps running
+\$ jobs #to see all active programs and their statuses
+
+\$ bg %1 #to run a suspended program
+\$ jobs # all programs are running again
+\$ kill -STOP %1 #kill allows you to send any UNIX signal, stop in this case, %1=identifier
+\$ jobs
+
+#### Terminal Multiplex
+
+Tmux allows executing “virtual shells”. Huge benefit in remote sessions, as it will not kill the running apps in a remote terminal.
+\$ tmux new -s "session name" -n " window name"
+\$ tmux neww -n " window name2"
+
+##### Sessions
+
+\$ tmux # starts a new session
+\$ tmux ls lists the current sessions
+
+ctrl-b d #to detach from current tmux session
+\$ tmux a to attach the latest session?
+\$ tmux attach -t 0 # to attach specific session
+
+\$ tmux new -s foobar # creates a new session named foobar
+\$ tmux rename-session -t 0 foobar #to rename existing session
+ctrl-b $ # to rename session
+
+##### Windows
+
+ctrl-b c # to create a new window in session, ctrl+d to terminate the window
+ctrl-b n/p # to move to next/previous window
+ctrl-b 0-9 # to switch to a specific window
+ctrl-b w # lists current windows
+ctrl-b , # to rename current window
+
+##### Panes
+
+ctrl-b %/” # to split pane vertically, horizontally
+ctrl-b arrow # to switch b/w panes
+ctrl-b z # to zoom in/out from specific pane
+ctrl-b space # to change the layout of pines in the current window
+
+\$ tmux # allows creating different workspaces in the same terminal
+Sessions, Windows Panes
+\$ tmux starts a session
+
+#### Dotfiles
+
+##### Alias
+
+alias alias_name="command_to_alias arg1 arg2"
+
+\$ alias ll=’ls -lah’
+\$ alias gs=”git status”
+\$ alias sl=ls
+\$ alias mv=”mv-i”
+
+Aliases are saved locally and are removed once the terminal is closed. Dotfiles are a solution for that.
+
+\$ vim ~/.bashrc
+alias sl=ls
+
+#### ssl
+
+Remote machines
+ssh = secure shell
+\$ ssh user@address
+\$ logout
+\$ ssh user@address ls -la # ssh | grep what_to find allows to execute commands remotely and then pipe it locally
+
+To avoid entering the password every time, use ssh-keys.
+
+\$ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519
+You should choose a passphrase, to avoid someone who gets hold of your private key to access authorized servers.
+
+ssh will look into .ssh/authorized_keys to determine which clients it should let in. To copy a public key over you can use: cat .ssh/id_ed25519.pub | ssh foobar@remote 'cat >> ~/.ssh/authorized_keys'
+A simpler solution can be achieved with ssh-copy-id where available:
+\$ ssh-copy-id -i .ssh/id_ed25519.pub foobar@remote
+
+##### Copy over ssh
+
+Scp
+rsync
+
+##### .ssh/config
+
+Host vm
+
+* User foobar
+* HostName 172.16.174.141
+* Port 2222
+* IdentityFile ~/.ssh/id_ed25519
+* LocalForward 9999 localhost:8888
+
+Configs can also take wildcards
+
+Host *.mit.edu
+
+* User foobaz
+
+An additional advantage of using the ~/.ssh/config file over aliases is that other programs like scp, rsync, mosh, &c are able to read it as well and convert the settings into the corresponding flags.
+
 ### Ch6 -  Version Control (Git)
 
 Git, in general, is good for the history of changes + collaboration, will take a snapshot for all content of the folder. Additionally, will give extra information, like who, when, and why made changes to the code.
@@ -398,7 +516,7 @@ log base 2 (Nr of possibilities):
 
 * maps data of arbitrary size to a fixed size
 * sha1 maps arbitrary-sized inputs to 160-bit outputs (which can be represented as 40 hexadecimal characters)
-* echo Hello | sha1sum
+* echo Hello \| sha1sum
 * hard-to-invert random-looking (but deterministic) function
 * [Lifetimes of cryptographic hash functions](https://valerieaurora.org/hash.html)
 
