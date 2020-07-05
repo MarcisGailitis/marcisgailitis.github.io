@@ -247,14 +247,16 @@ Shell - tons of terminals which are windows that allow displaying shells, most p
 #### Sample commands
 
 `$ date`
+
 `$ echo hello`
+
 `$ echo “hello world”`
 
 #### path variable, stores all executable files
 
 `$ echo $PATH`
 
-##### which
+#### which
 
 Shows where the program is located.
 
@@ -278,7 +280,7 @@ Option = anything that does take a value
 
 #### clear
 
-`$ clear or ctrl+l`
+`$ clear or Ctrl+l`
 
 #### Input/output streams
 
@@ -305,11 +307,13 @@ Shell scripting + shell tools for repeatable tasks
 #### Scripting
 
 Defining  a variable
+
 `$ foo=bar`
 
 `$ echo $foo`
 
 Spaces in shell are used to separate arguments. Executing foo with 2 arguments, = and bar
+
 `$foo = bar`
 
 Strings with quotes and double quotes
@@ -611,34 +615,44 @@ ctrl-b $ # to rename session
 
 ##### Alias
 
-alias alias_name="command_to_alias arg1 arg2"
+`alias alias_name="command_to_alias arg1 arg2"`
 
-\$ alias ll=’ls -lah’
-\$ alias gs=”git status”
-\$ alias sl=ls
-\$ alias mv=”mv-i”
+`$ alias ll=’ls -lah’`
+
+`$ alias gs=”git status”`
+
+`$ alias sl=ls`
+
+`$ alias mv=”mv-i”`
 
 Aliases are saved locally and are removed once the terminal is closed. Dotfiles are a solution for that.
 
-\$ vim ~/.bashrc
+`$ vim ~/.bashrc`
+
 alias sl=ls
 
 #### ssl
 
 Remote machines
 ssh = secure shell
-\$ ssh user@address
-\$ logout
-\$ ssh user@address ls -la # ssh | grep what_to find allows to execute commands remotely and then pipe it locally
+`$ ssh user@address`
+
+`$ logout`
+
+`$ ssh user@address ls -la ssh | grep what_to find` allows to execute commands remotely and then pipe it locally
 
 To avoid entering the password every time, use ssh-keys.
 
-\$ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519
+`$ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519`
+
 You should choose a passphrase, to avoid someone who gets hold of your private key to access authorized servers.
 
-ssh will look into .ssh/authorized_keys to determine which clients it should let in. To copy a public key over you can use: cat .ssh/id_ed25519.pub | ssh foobar@remote 'cat >> ~/.ssh/authorized_keys'
+ssh will look into .ssh/authorized_keys to determine which clients it should let in. To copy a public key over you can use:
+`cat .ssh/id_ed25519.pub | ssh foobar@remote 'cat >> ~/.ssh/authorized_keys'`
+
 A simpler solution can be achieved with ssh-copy-id where available:
-\$ ssh-copy-id -i .ssh/id_ed25519.pub foobar@remote
+
+`$ ssh-copy-id -i .ssh/id_ed25519.pub foobar@remote`
 
 ##### Copy over ssh
 
@@ -672,7 +686,7 @@ Files = Blob
 
 type blob = array (byte)
 
-type tree = map (string, tree | blob)
+type tree = map (string, tree \| blob)
 
 type commit = bunch of stuff:
 
@@ -681,8 +695,9 @@ type commit = bunch of stuff:
 * message: string
 * snapshot: tree
 
-type object = blob | tree | commit
-objects = map (string, object) # immutable
+type object = blob \| tree \| commit
+
+objects = map (string, object)
 
 def store(o):
 
@@ -706,6 +721,7 @@ references:
 working directory -> staging area -> snapshot (commit)
 
 object = tree or blob or another object, accessed by sha1 hash.
+
 references = link to commits, which are mutable (can be updated to point to a new commit)
 
 * master point to the latest commit in development
@@ -713,17 +729,14 @@ references = link to commits, which are mutable (can be updated to point to a ne
 
 Once we have objects and references, that is all there is to Git repo, the two pieces of data it shares. At a high level, all Git commands are just manipulations of these 2 kinds of data.
 
-\$ git init
-\$ cd ./git
-\$ git status
-\$ git add
-\$ git status
-\$ git commit
-\$ git log --all --decorate ---graph -oneline
-\$ git cat-file -p sha1_commit_hash #  to see the content of that hash
-\$ git checkout # moves the HEAD pointer & changes files in the home directory
+`$ git log --all --decorate --graph -oneline`
+
+`$ git cat-file -p sha1_commit_hash` to see the content of that hash
+
+`$ git checkout` moves the HEAD pointer & changes files in the home directory
 
 Q What exactly does the hash correspond to?
+
 A This is the hash of commit, the commit contains the hashes of the tree + blob
 
 ### Ch7 - Debugging and Profiling
@@ -746,15 +759,16 @@ A tool that will wrap around your code and will let you run your code awhile kee
 
 IDEs are using command line debuggers and presenting them in a fancy way. Debuggers are really powerful!
 
-$ python -m pdb filename:
-l = list all the code
-s = 1 step
-restart = restarts the debugger
-c = continue
-p = evaluate expression and print its value, pp for pretty print (example p arr,  p j, p locals())
-q = quits debugger
-b = breakpoint, program will stop
-c = continue after break points
+`$ python -m pdb filename`:
+
+* l = list all the code
+* s = 1 step
+* restart = restarts the debugger
+* c = continue
+* p = evaluate expression and print its value, pp for pretty print (example p arr,  p j, p locals())
+* q = quits debugger
+* b = breakpoint, program will stop
+* c = continue after break points
 
 #### Profilers
 
@@ -807,7 +821,9 @@ As an example of a CI system, the class website is set up using GitHub Pages. Pa
 #### Testing
 
 Unit test = tests a single feature
+
 Integration Tests = tests interactions b/w different subsystems
+
 Regression Tests = tests things that were broken in past
 
 ### Ch9 - Security and Cryptography
