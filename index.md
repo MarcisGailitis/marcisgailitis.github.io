@@ -587,7 +587,8 @@ Tmux allows creating different workspaces in the same terminal, Sessions, Window
 `$ tmux new -s foobar` creates a new session named foobar
 
 `$ tmux rename-session -t 0 foobar` to rename existing session
-ctrl-b $ # to rename session
+
+`ctrl-b $` # to rename session
 
 ##### Windows
 
@@ -629,7 +630,7 @@ Aliases are saved locally and are removed once the terminal is closed. Dotfiles 
 
 `$ vim ~/.bashrc`
 
-alias sl=ls
+> alias sl=ls
 
 #### ssl
 
@@ -639,7 +640,7 @@ ssh = secure shell
 
 `$ logout`
 
-`$ ssh user@address ls -la ssh | grep what_to find` allows to execute commands remotely and then pipe it locally
+`$ ssh user@address ls -la ssh | grep what_to_find` allows to execute commands remotely and then pipe it locally
 
 To avoid entering the password every time, use ssh-keys.
 
