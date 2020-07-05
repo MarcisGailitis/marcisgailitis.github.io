@@ -235,6 +235,114 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch2 - Shell Tools and Scripting
+
+Shell scripting + shell tools for repeatable tasks
+
+#### Scripting
+
+Defining  a variable
+`$ foo=bar`
+`$ echo $foo`
+
+`$foo = bar`
+Spaces in shell are used to separate arguments. Executing foo with 2 arguments, = and bar
+
+Strings with quotes and double quotes
+
+* `$ echo “Value is $foo”` expands variable
+* `$ echo ‘Value is $foo’` does not expand variables
+
+##### Simple function
+
+```bash
+mcd () {
+    mkdir -p “$1”
+    cd “$1”
+}
+```
+
+##### Execute the program
+
+`$ source mcd.sh`
+`$ mcd test`
+
+##### $ something
+
+`$0 name` of the program
+`$1 - $9` arguments passed to the program
+`$#` number of arguments
+`$@` expands to all of the arguments
+`$$` PID
+`$?` - exit code # 0 is good, other numbers not ok
+`$_` last argument of the previous program
+
+##### Bang bang
+
+!! executes the last program
+`$ apt install some_app`
+`$ sudo !!`
+
+##### true/false error codes
+
+`$ true` always exit code 0
+`$ false` always exit code 1
+
+##### The output of a command to a variable
+
+`$ foo=$(pwd)`
+`$ echo $foo`
+
+`$ “Current directory: $(pwd)”`
+`$ echo $(echo $foo)`
+
+##### Wildcards
+
+`$ ls *.sh`
+`$ ls project?`
+`$ convert image.{jpeg,png}`
+
+#### Useful shell apps
+
+##### shellcheck
+
+to check the bash code scripts
+
+##### tldr
+
+man on steroids
+
+##### find
+
+`$ find . -name scr -type d`
+`$ find . -path ‘../test/*.py’ -type f`
+`$ find . -mtime -1`
+`$ find . -name “*.tmp” -exec rm {}\;`
+
+##### fd
+
+find on steroids
+
+##### locate and updatedb
+
+##### grep -R what where
+
+$ grep foobar mcd.sh
+$ grep -R foobar # searches in all files
+
+##### rg (ripgrep)
+
+$ rg “import requests” -t py ~/scratch
+$ rg “import requests” -t py -C 5 ~/scratch
+$ rg -u --files-without-match “^#\!” -t sh
+$ rg “import requests” -t py -C 5 --stats ~/scratch
+
+##### up arrow vs. history | grep command_name vs. ctrl+r to search history
+
+fzf bindings vs. history based autosuggestions
+
+##### ls -R vs tree vs broot
+
 ### Ch3 -  Editors (vim)
 
 #### Modes
@@ -302,9 +410,9 @@ Ctrl + g - shows file info, filename + status + location in file
 * :wq - write + quit
 * ZZ - write + quit
 
-* `:set ignorecase` or :set ic (ignore case)
-* `:set incsearch` or :set is (partial match)
-* `:set hlsearch` or :set hls (highlight search)
+* `:set ignorecase` or `:set ic` (ignore case)
+* `:set incsearch` or `:set is` (partial match)
+* `:set hlsearch` or `:set hls` (highlight search)
 * `:set noxxx` (to switch off)
 
 ### Ch4 - Data wrangling
