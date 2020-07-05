@@ -273,65 +273,81 @@ Data wrangling examples:
 
 #### Job Control
 
-\$ sleep 20
+`$ sleep 20` Ctrl+c to terminate sleep program, which sends SIGINT (Signal Interrupt) signal to the kernel.
 
-Ctrl+c to terminate sleep program, which sends SIGINT (Signal Interrupt) signal to the kernel.
-\$ man signal to see all available signals, at least 18 of them
+`$ man signal` to see all available signals, at least 18 of them
 
 * SIGSTOP to stop, SIGCONT to continue
 * SIGQUIT to quit
 * SIGKILL can not be captured
 when you logoff, terminal send Hangup signal to all active applications
 
-\$ sleep 100
+`$ sleep 100`
 ctrl+z to sent Sigstop,  to suspend
-\$ nohup sleep 2000 &
-\& to send the program to background
-nohup encapsulates your command and ignores Hangup signal, so that command keeps running
-\$ jobs #to see all active programs and their statuses
 
-\$ bg %1 #to run a suspended program
-\$ jobs # all programs are running again
-\$ kill -STOP %1 #kill allows you to send any UNIX signal, stop in this case, %1=identifier
-\$ jobs
+`$ nohup sleep 2000 &`
+
+* nohup encapsulates your command and ignores Hangup signal, so that command keeps running
+* & to send the program to background
+
+`$ jobs` to see all active programs and their statuses
+
+`$ bg %1` to run a suspended program
+
+`$ jobs` all programs are running again
+
+`$ kill -STOP %1` #kill allows you to send any UNIX signal, stop in this case, %1=identifier
+
+`$ jobs`
 
 #### Terminal Multiplex
 
-Tmux allows executing “virtual shells”. Huge benefit in remote sessions, as it will not kill the running apps in a remote terminal.
-\$ tmux new -s "session name" -n " window name"
-\$ tmux neww -n " window name2"
+Tmux allows executing “virtual shells”. Huge benefit in remote sessions, as it will not kill the running apps in a remote terminal. 
+
+Tmux allows creating different workspaces in the same terminal, Sessions, Windows Panes.
+
+`$ tmux new -s "session name" -n " window name"`
+
+`$ tmux neww -n " window name2"`
 
 ##### Sessions
 
-\$ tmux # starts a new session
-\$ tmux ls lists the current sessions
+`$ tmux` starts a new session
 
-ctrl-b d #to detach from current tmux session
-\$ tmux a to attach the latest session?
-\$ tmux attach -t 0 # to attach specific session
+`$ tmux ls` lists the current sessions
 
-\$ tmux new -s foobar # creates a new session named foobar
-\$ tmux rename-session -t 0 foobar #to rename existing session
+`ctrl-b d` to detach from current tmux session
+
+`$ tmux a` to attach the latest session?
+
+`$ tmux attach -t 0` to attach specific session
+
+`$ tmux new -s foobar` creates a new session named foobar
+
+`$ tmux rename-session -t 0 foobar` to rename existing session
 ctrl-b $ # to rename session
 
 ##### Windows
 
-ctrl-b c # to create a new window in session, ctrl+d to terminate the window
-ctrl-b n/p # to move to next/previous window
-ctrl-b 0-9 # to switch to a specific window
-ctrl-b w # lists current windows
-ctrl-b , # to rename current window
+`ctrl-b c` to create a new window in session, ctrl+d to terminate the window
+
+`ctrl-b n/p` to move to next/previous window
+
+`ctrl-b 0-9` to switch to a specific window
+
+`ctrl-b w` lists current windows
+
+`ctrl-b ,` to rename current window
 
 ##### Panes
 
-ctrl-b %/” # to split pane vertically, horizontally
-ctrl-b arrow # to switch b/w panes
-ctrl-b z # to zoom in/out from specific pane
-ctrl-b space # to change the layout of pines in the current window
+`ctrl-b %/”` to split pane vertically, horizontally
 
-\$ tmux # allows creating different workspaces in the same terminal
-Sessions, Windows Panes
-\$ tmux starts a session
+`ctrl-b arrow` to switch b/w panes
+
+`ctrl-b z` to zoom in/out from specific pane
+
+`ctrl-b space` to change the layout of pines in the current window
 
 #### Dotfiles
 
