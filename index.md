@@ -235,6 +235,78 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch3 -  Editors (vim)
+
+#### Modes
+
+* Esc - normal mode = default mode, option to rebind Esc key
+* v - visual selection mode (to select lines of text)
+* Shift+v - Visual Line mode
+* Shift+r - Replace mode
+* i - insert mode before the cursor, (as each error is fixed, Esc + h, j, k, l to move to next error)
+* : - command line mode
+
+Ctrl + g - shows file info, filename + status + location in file
+
+#### Movement
+
+* Basic movement: h, j, k, l to move around, no arrow buttons, please
+* Words: w (next word), e (end of word), b (beginning of word/previous word)
+* Lines: 0 (beginning of the line), ^ (first non-blank char), \$ (end of line)
+* Screen: H (top of the screen), M (middle of the screen), L (bottom of the screen)
+* Scroll:  Ctrl+u (page up, half screen), Ctrl+d (page down, half screen)
+* Ctrl+f (page down, full-page) Ctrl+b (page up, full page)
+* File: G (last line), gg (first line)
+* Line numbers: :number, number + G (moves to a specific line)
+* Search: /{regex} (search forwards), n (next), N (previous), ?{regex} (to search backwards),* (on word, searches for next instance)
+* Misc: % (Corresponding item)
+* Find: f+char (find/to forward/backward {char} on the current line),  F+char (searches backward)
+
+#### Editing
+
+* i (insert), a (append after the cursor), A (appends at the end of the current line),
+* o/O (inserts new line below/above cursor and changes mode to insert),
+* d{motion} ( delete {motion} e.g. dw deletes the word, d$ is deleting to end of the line, d0 is deleting to the beginning of the line), dd (delete the whole line)
+* c{motion} (change {motion}, e.g. cw is change word, like d{motion} followed by i)
+* x (delete character (equal do dl)
+* y (to copy / “yank”, some other commands like d also copy), p (paste previously deleted text after the cursor)
+* r+char replaces char under the cursor
+* . (repeats last change),
+* u (undo the last command), Ctrl + r (redo the last command), U (undo all commands for the current line)
+* J (deletes line break at the end of the line),
+
+#### Counts
+
+* d3w - deletes 3 words
+* 2dd - deletes 2 lines
+* 6j - moves 6 rows down
+* 2w - moves cursor 2 words forward
+
+#### Command-line
+
+* :s/old/new + Enter - substitute old to new only one change
+* :s/old/new/g + Enter - substitute old to new all instances on the line
+* :%s/old/new/g - substitute all changes in the file
+* :#,#s/old/new/g - substitute old to new all instances on the line b/w lines #
+* :%s/old/new/gc - all changes in the file + confirmation
+* :!command - to execute external command
+* :w filename - to write current vim content to a file filename
+* :w - to save current vim content
+* :r filename - inserts content from a file filename below the cursor line
+* :r !ls - to insert content from an external command
+* :q - to quit
+* :w - to write
+* :h - for help, :q to quit help
+* :e - to open file
+* :q! - quits no save
+* :wq - write + quit
+* ZZ - write + quit
+
+* `:set ignorecase` or :set ic (ignore case)
+* `:set incsearch` or :set is (partial match)
+* `:set hlsearch` or :set hls (highlight search)
+* `:set noxxx` (to switch off)
+
 ### Ch4 - Data wrangling
 
 Data Wrangling  = changing data format1 -> format2
@@ -302,12 +374,11 @@ ctrl+z to sent Sigstop,  to suspend
 
 #### Terminal Multiplex
 
-Tmux allows executing “virtual shells”. Huge benefit in remote sessions, as it will not kill the running apps in a remote terminal. 
+Tmux allows executing “virtual shells”. Huge benefit in remote sessions, as it will not kill the running apps in a remote terminal.
 
 Tmux allows creating different workspaces in the same terminal, Sessions, Windows Panes.
 
 `$ tmux new -s "session name" -n " window name"`
-
 `$ tmux neww -n " window name2"`
 
 ##### Sessions
