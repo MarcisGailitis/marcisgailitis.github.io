@@ -235,6 +235,69 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch1 -  Course overview + the shell
+
+We want to teach you how to make the most of the tools you know, show you new tools to add to your toolbox
+[https://missing.csail.mit.edu/](https://missing.csail.mit.edu/)
+
+#### Shell vs. terminal vs. shell prompt vs. bash
+
+Shell - tons of terminals which are windows that allow displaying shells, most popular shell - Bash
+
+#### Sample commands
+
+`$ date`
+`$ echo hello`
+`$ echo “hello world”`
+
+#### path variable, stores all executable files
+
+`$ echo $PATH`
+
+##### which
+
+Shows where the program is located.
+
+`$ which echo`
+
+> /usr/bin/echo
+
+#### cd
+
+`$ cd ~` brings you to the home directory
+
+`$ cd -` brings to back to your previous dir.
+
+#### flags/options
+
+`$ program_name --help` will print help information
+
+Flag = anything that does not take a value
+
+Option = anything that does take a value
+
+#### clear
+
+`$ clear or ctrl+l`
+
+#### Input/output streams
+
+`echo ‘asd’ > output.txt`
+
+`cat < output.txt`
+
+#### Piping
+
+`$ ls -l / | tail -n1`
+
+#### show info about particular filename
+
+`$ file filename`
+
+#### open file with default graphical app
+
+`$ xdg-open filename`
+
 ### Ch2 - Shell Tools and Scripting
 
 Shell scripting + shell tools for repeatable tasks
