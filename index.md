@@ -235,9 +235,72 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch6 -  Version Control (Git)
+
+Git, in general, is good for the history of changes + collaboration, will take a snapshot for all content of the folder. Additionally, will give extra information, like who, when, and why made changes to the code.
+
+Folder = Tree
+Files = Blob
+
+type blob = array (byte)
+
+type tree = map (string, tree | blob)
+
+type commit = bunch of stuff:
+
+* parents: array (commits)
+* author: string
+* message: string
+* snapshot: tree
+
+type object = blob | tree | commit
+objects = map (string, object) # immutable
+
+def store(o):
+
+* id = sha1(o)
+* object(id) = o
+
+def load (id):
+
+* return object(id)
+
+reference = map ()string, string)
+
+Commits are immutable, which means that editing commit will make an entirely new commit. References are mutable, meaning you can update references pointing to specific objects.
+
+references:
+
+* commit name
+* master - main branch of development
+* HEAD - in which commit you are currently looking at
+
+working directory -> staging area -> snapshot (commit)
+
+object = tree or blob or another object, accessed by sha1 hash.
+references = link to commits, which are mutable (can be updated to point to a new commit)
+
+* master point to the latest commit in development
+* HEAD point s to commit, that we are currently in
+
+Once we have objects and references, that is all there is to Git repo, the two pieces of data it shares. At a high level, all Git commands are just manipulations of these 2 kinds of data.
+
+\$ git init
+\$ cd ./git
+\$ git status
+\$ git add
+\$ git status
+\$ git commit
+\$ git log --all --decorate ---graph -oneline
+\$ git cat-file -p sha1_commit_hash #  to see the content of that hash
+\$ git checkout # moves the HEAD pointer & changes files in the home directory
+
+Q What exactly does the hash correspond to?
+A This is the hash of commit, the commit contains the hashes of the tree + blob
+
 ### Ch7 - Debugging and Profiling
 
-#### Printf debugging
+#### printf debugging
 
 #### Logging
 
@@ -279,7 +342,7 @@ how to optimize the code
 
 FlameGraph
 
-#### Resource Monitoring:
+#### Resource Monitoring
 
 * htop = for processes running in the system
 * dstat = computes real-time resource metrics
