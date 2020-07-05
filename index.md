@@ -798,7 +798,7 @@ FlameGraph
 
 #### Build systems
 
-$ make
+`$ make`
 
 #### Semantic versioning
 
