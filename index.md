@@ -243,10 +243,11 @@ Shell scripting + shell tools for repeatable tasks
 
 Defining  a variable
 `$ foo=bar`
+
 `$ echo $foo`
 
-`$foo = bar`
 Spaces in shell are used to separate arguments. Executing foo with 2 arguments, = and bar
+`$foo = bar`
 
 Strings with quotes and double quotes
 
@@ -332,16 +333,16 @@ $ grep -R foobar # searches in all files
 
 ##### rg (ripgrep)
 
-$ rg “import requests” -t py ~/scratch
-$ rg “import requests” -t py -C 5 ~/scratch
-$ rg -u --files-without-match “^#\!” -t sh
-$ rg “import requests” -t py -C 5 --stats ~/scratch
+`$ rg “import requests” -t py ~/scratch`
+`$ rg “import requests” -t py -C 5 ~/scratch`
+`$ rg -u --files-without-match “^#\!” -t sh`
+`$ rg “import requests” -t py -C 5 --stats ~/scratch`
 
 ##### up arrow vs. history | grep command_name vs. ctrl+r to search history
 
 fzf bindings vs. history based autosuggestions
 
-##### ls -R vs tree vs broot
+##### ls -R vs. tree vs. broot
 
 ### Ch3 -  Editors (vim)
 
