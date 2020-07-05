@@ -235,6 +235,37 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch8 - Metaprogramming
+
+#### Build systems
+
+$ make
+
+#### Semantic versioning
+
+Major.minor.patch
+Major = change API in a non-backward-compatible way
+Minor = add to API in a backward-compatible way
+Patch = new release does not change API
+
+#### CI Systems
+
+Are essentially cloud build system aka. stuff that runs whenever your code changes, like:
+
+* upload a new version of the documentation,
+* upload a compiled version somewhere, 
+* release the code to PyPI, 
+* run your test suite
+* Maybe every time someone sends you a pull request on GitHub, you want their code to be style checked and you want some benchmarks to run
+
+As an example of a CI system, the class website is set up using GitHub Pages. Pages is a CI action that runs the Jekyll blog software on every push to master and makes the built site available on a particular GitHub domain. This makes it trivial for us to update the website! We just make our changes locally, commit them with git, and then push. CI takes care of the rest.
+
+#### Testing
+
+Unit test = tests a single feature
+Integration Tests = tests interactions b/w different subsystems
+Regression Tests = tests things that were broken in past
+
 ### Ch9 - Security and Cryptography
 
 #### Entropy
