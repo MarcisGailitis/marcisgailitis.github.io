@@ -235,6 +235,59 @@ or Functions as a Service
 
 Summaries from lectures: [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/)
 
+### Ch7 - Debugging and Profiling
+
+#### Printf debugging
+
+#### Logging
+
+* to file instead of STOUT
+* Severity levels (NFO, DEBUG, WARN, ERROR + coloring)
+
+#### Debugger
+
+A tool that will wrap around your code and will let you run your code awhile keeping control around it:
+
+* Halt execution
+* Step through the program
+* Inspect values
+* Etc
+
+IDEs are using command line debuggers and presenting them in a fancy way. Debuggers are really powerful!
+
+$ python -m pdb filename:
+l = list all the code
+s = 1 step
+restart = restarts the debugger
+c = continue
+p = evaluate expression and print its value, pp for pretty print (example p arr,  p j, p locals())
+q = quits debugger
+b = breakpoint, program will stop
+c = continue after break points
+
+#### Profilers
+
+how to optimize the code
+
+* time
+* ltrace
+* cProfile
+* memory-profiler
+* strace
+
+#### Visualizers
+
+FlameGraph
+
+#### Resource Monitoring:
+
+* htop = for processes running in the system
+* dstat = computes real-time resource metrics
+* iotop = input/output
+* df, du for disk metrics
+* free = memory usage
+* iftop = network usage
+
 ### Ch8 - Metaprogramming
 
 #### Build systems
@@ -243,18 +296,18 @@ $ make
 
 #### Semantic versioning
 
-Major.minor.patch
-Major = change API in a non-backward-compatible way
-Minor = add to API in a backward-compatible way
-Patch = new release does not change API
+major.minor.patch
+major = change API in a non-backward-compatible way
+minor = add to API in a backward-compatible way
+patch = new release does not change API
 
 #### CI Systems
 
 Are essentially cloud build system aka. stuff that runs whenever your code changes, like:
 
-* upload a new version of the documentation,
-* upload a compiled version somewhere, 
-* release the code to PyPI, 
+* upload a new version of the documentation
+* upload a compiled version somewhere
+* release the code to PyPI
 * run your test suite
 * Maybe every time someone sends you a pull request on GitHub, you want their code to be style checked and you want some benchmarks to run
 
