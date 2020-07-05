@@ -709,9 +709,10 @@ def load (id):
 
 * return object(id)
 
-reference = map ()string, string)
+reference = map (string, string)
 
-Commits are immutable, which means that editing commit will make an entirely new commit. References are mutable, meaning you can update references pointing to specific objects.
+Commits are immutable, which means that editing commit will make an entirely new commit.
+References are mutable, meaning you can update references pointing to specific objects.
 
 references:
 
@@ -737,7 +738,6 @@ Once we have objects and references, that is all there is to Git repo, the two p
 `$ git checkout` moves the HEAD pointer & changes files in the home directory
 
 Q What exactly does the hash correspond to?
-
 A This is the hash of commit, the commit contains the hashes of the tree + blob
 
 ### Ch7 - Debugging and Profiling
