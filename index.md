@@ -2,6 +2,55 @@
 
 ## GCP
 
+### [Platform Overview - Serverless](https://www.youtube.com/watch?v=PBw9vD_BO5A)
+
+#### Benefits (you give us the code, we do the rest)
+
+* No service management
+* No Infrastructure management
+* Manages Security
+* Auto-scaling to meet the load demand
+* pay only for usage
+* used for web apps, mobile APIs or backend services
+
+#### Cloud Functions
+
+* Functions as a Service
+* Triggered on events or HTTP requests, can interact with other GCP services, can interact with GCP APIs
+
+#### Cloud Run
+
+* True serverless experience
+* Stateless HTTP Container -> Cloud Registry -> Cloud Run Service
+* Scales up and down to zero.
+* Supports multiple services in a single GCP project
+
+#### App Engine
+
+* manages platform that lets you pick the language
+* uses gVisor to allow read/write access
+* live debugging, tracing, etc
+
+#### Cloud Pub/Sub, Cloud Tasks, and Cloud Scheduler to support serverless
+
+#### Cloud Pub/Sub
+
+* many-to-many, async
+* "at-least-once"'delivery
+* global
+
+#### Cloud Tasks
+
+* dispatch system for distributed tasks
+* one-to-one async messaging
+
+#### Cloud Scheduler
+
+* Cron-as-a-Service for:
+* https endpoints
+* pub/sub
+* App Engine apps
+
 ### [Navigating Google Cloud Platform: A Guide for new GCP users](https://www.youtube.com/watch?v=RynMOvYdsCg)
 
 Extra time on computing and storage
@@ -40,7 +89,7 @@ Extra time on computing and storage
 * Integrates with Container Registry
 * Will take your Docker files & application and build an image for you and host in Container Registry
 
-##### Cloud Functions
+##### Cloud Functions 1
 
 No app, just simple function (email, when someone uploads a file, you do not want to build a whole application around it, you just want to listen for the event and then start Cloud function)
 
@@ -181,7 +230,7 @@ Managed Kubernetes or Containers as a Service
 * Full advantage of containers
 * CI/CD pipeline
 
-#### App Engine
+#### App Engine 1
 
 Let us run & scale your code
 or Platform as a Service
@@ -843,7 +892,7 @@ log base 2 (Nr of possibilities):
 
 * maps data of arbitrary size to a fixed size
 * sha1 maps arbitrary-sized inputs to 160-bit outputs (which can be represented as 40 hexadecimal characters)
-* echo Hello \| sha1sum
+* `$ echo Hello | sha1sum`
 * hard-to-invert random-looking (but deterministic) function
 * [Lifetimes of cryptographic hash functions](https://valerieaurora.org/hash.html)
 
