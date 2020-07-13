@@ -2,6 +2,31 @@
 
 ## GCP
 
+### [Top 3 ways to run your Containers on Google Cloud](https://youtu.be/jh0fPT-AWwM)
+
+Concepts underlying containers have been around for many years (Docker + Kubernetes).
+
+Containers give you a lot of freedom, by letting you package and app, with all of its dependencies, into an easy to move package.
+
+The solutions of running containers in GCP vary in how much in underlying infrastructure is exposed.
+
+#### Google Kubernetes Engine (GKE)
+
+Fully manages Kubernetes service (scheduling, scaling, monitoring). Create a container deployment,  with the Cluster being provisioned on the fly. Hassle-free operations - autoscaling,  auto repair, auto-upgrade. Part of Anthos.
+
+#### Cloud Run
+
+What if you could focus on building your stateless app, not on writing yaml files, and still deliver code packaged in a container. Cloud Run gives you the benefits of both containers and serverless. No Cluster of infrastructure to provision or manage and Cloud Run automatically scales your stateless containers. Cloud Run is based on knative, an open-source project offers serverless abstraction on top of Kubernetes.
+
+#### Google Compute Engine (GCE)
+
+The third option is straight to Google Compute Engine (GCE). When creating a new VM, the Container section will let you specify the image you want to use. Boot disk = Container-Optimized OS, optimized for running Docker containers.
+You can still create scalable services in Compute Engine using Managed Instance Groups (include autoscaling, auto-healing, rolling updates, and load-balancing).
+
+#### Google Container Registry (GCR)
+
+to store, version, and restrict access to container images. Deploy to GKE, Cloud Run, and GCE directly from GCR.  GCR works with Cloud Build, Jenkins, etc to build images.
+
 ### [Platform Overview - Serverless](https://www.youtube.com/watch?v=PBw9vD_BO5A)
 
 #### Benefits (you give us the code, we do the rest)
@@ -18,7 +43,7 @@
 * Functions as a Service
 * Triggered on events or HTTP requests, can interact with other GCP services, can interact with GCP APIs
 
-#### Cloud Run
+#### Cloud Run 1
 
 * True serverless experience
 * Stateless HTTP Container -> Cloud Registry -> Cloud Run Service
