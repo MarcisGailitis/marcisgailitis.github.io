@@ -2,6 +2,61 @@
 
 ## GCP
 
+### [Choosing the right compute option in GCP: a decision tree](https://youtu.be/2tLXKCgqwLY)
+
+#### Where to run your code
+
+As each cloud-based application has needs specific to its environment, GCP offers a diverse set of options to run your code on. How to figure out which option is right for your use case?
+
+Highly customizable (more abstract) <-> Highly managed (less abstract):
+
+Compute - Kubernetes - cloud run - app engine - Cloud Functions - Firebase
+
+#### Firebase
+
+Firebase - is for mobile developers. Storage, Notification, syncing, but with least server-side code possible.
+
+Offers: database, Storage, Functions/Services, Hosting
+
+#### Cloud Functions
+
+Cloud Functions - Applications scale beyond mobile, but you still want to minimize server-size code. Event-driven applications, like action based on email.
+
+Picture your code, if it consists of a bunch of fairly independent functions? Think of cloud functions as a glue connecting your APIs together. With Cloud Functions, you get full access to GCP APIs and only pay for the time, the application is running.
+
+#### App Engine
+
+Having your applications split up in independent functions might not always be the best idea. If your app is too intertwined or filled with legacy code and too large to refactor, then App Engine is your option.
+App Engine lets your run your app, without having to make each part available as an independent function.
+
+Supports a wide range of runtimes and long-running processes.
+App Engine = fast autoscaling!
+
+#### Cloud Run
+
+Until recently If you wanted the advantages of running your app in a container, you had to skip some of the App Engine's features like autoscaling, but thanks to Cloud Run, you do not have to anymore. Cloud Run brings serverless principles and containers together! With fully-hosted backend, it supports serverless principles, of pay for what you use and autoscaling, and adds the flexibility of running everything you can in a container.
+
+#### Kubernetes Engine
+
+* If you already have some IT team members, who can oversee tasks, like provisioning, compute and monitoring health and you still run your apps in containers,  GKE might be a better fit. GKE groups containers that make up an application into logical units for better management and discovery. Almost everyone using Kubernetes has already agreed to use Kubernetes as their orchestration system they are just deciding how and where to run it:
+* maybe you want to run a single container, on a bunch of VMs and scale it up and down as quickly as possible, or you have a bunch of micro-services and containers, that all need to work together.
+* or to offload part of the management to a provider, using a hybrid-cloud solution.
+
+Kubernetes Engine and Compute Engine you pay per VM
+
+Cloud Functions,  Cloud Run and App Engine you pay per usage
+
+#### Compute Engine
+
+when you just want a computer:
+
+* for existing software
+* licensing reasons
+* you need specific kernel
+* When you think of Google Compute Engine, think of high flexibility.
+
+[Choosing the right compute option in GCP: a decision tree](https://cloud.google.com/blog/products/gcp/choosing-the-right-compute-option-in-gcp-a-decision-tree)
+
 ### [Top 3 ways to run your Containers on Google Cloud](https://youtu.be/jh0fPT-AWwM)
 
 Concepts underlying containers have been around for many years (Docker + Kubernetes).
@@ -14,7 +69,7 @@ The solutions of running containers in GCP vary in how much in underlying infras
 
 Fully manages Kubernetes service (scheduling, scaling, monitoring). Create a container deployment,  with the Cluster being provisioned on the fly. Hassle-free operations - autoscaling,  auto repair, auto-upgrade. Part of Anthos.
 
-#### Cloud Run
+#### Cloud Run 1
 
 What if you could focus on building your stateless app, not on writing yaml files, and still deliver code packaged in a container. Cloud Run gives you the benefits of both containers and serverless. No Cluster of infrastructure to provision or manage and Cloud Run automatically scales your stateless containers. Cloud Run is based on knative, an open-source project offers serverless abstraction on top of Kubernetes.
 
@@ -38,19 +93,19 @@ to store, version, and restrict access to container images. Deploy to GKE, Cloud
 * pay only for usage
 * used for web apps, mobile APIs or backend services
 
-#### Cloud Functions
+#### Cloud Functions 1
 
 * Functions as a Service
 * Triggered on events or HTTP requests, can interact with other GCP services, can interact with GCP APIs
 
-#### Cloud Run 1
+#### Cloud Run 2
 
 * True serverless experience
 * Stateless HTTP Container -> Cloud Registry -> Cloud Run Service
 * Scales up and down to zero.
 * Supports multiple services in a single GCP project
 
-#### App Engine
+#### App Engine 1
 
 * manages platform that lets you pick the language
 * uses gVisor to allow read/write access
@@ -114,7 +169,7 @@ Extra time on computing and storage
 * Integrates with Container Registry
 * Will take your Docker files & application and build an image for you and host in Container Registry
 
-##### Cloud Functions 1
+##### Cloud Functions 2
 
 No app, just simple function (email, when someone uploads a file, you do not want to build a whole application around it, you just want to listen for the event and then start Cloud function)
 
@@ -212,7 +267,7 @@ Serverless, Containers, VMs
 3. Kubernetes Engine, Collections of containers, for containerized systems
 4. Compute Engine, VMs, for existing systems
 
-#### Compute Engine
+#### Compute Engine 1
 
 VMs or Infrastructure as a Service
 
@@ -227,7 +282,7 @@ VMs or Infrastructure as a Service
 * Specific OS/kernel required
 * Running databases
 
-#### Kubernetes Engine
+#### Kubernetes Engine 1
 
 Managed Kubernetes or Containers as a Service
 
@@ -255,7 +310,7 @@ Managed Kubernetes or Containers as a Service
 * Full advantage of containers
 * CI/CD pipeline
 
-#### App Engine 1
+#### App Engine 2
 
 Let us run & scale your code
 or Platform as a Service
